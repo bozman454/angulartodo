@@ -1,0 +1,26 @@
+<div class="top">
+<h2>Click the items to mark them as done!</h2>
+<form routerLink='/dashboard' >
+   <input type="submit" value="dashboard"/>
+</form>
+<br><br>
+<input #in placeholder="put stuff here..."/>
+<button (click)="additem(in.value); in.value = '';">add item</button>
+<br><br>
+</div>
+
+<div class = "stuff">  
+<ul class="items">To-Do:
+    <li *ngFor="let item of (items | filterProgress2)" (click)='removeitem(item.id)' >
+      <span>{{item.content}}</span>
+   </li>
+</ul>
+</div>
+
+<div class = "stuff2">
+<ul class="done">Done:
+    <li *ngFor="let item of (items | filterProgress)" (click)='restoreone(item.id)'>
+      <span>{{item.content}}</span>
+   </li>
+</ul>
+</div>
